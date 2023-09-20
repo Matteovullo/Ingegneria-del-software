@@ -1,0 +1,62 @@
+/*
+Dati i seguenti frammenti di codice in stile imperativo
+si richiede di trascrivere la relativa forma funzionale
+sfruttando l'interfaccia Stream di Java
+*/
+
+List<Double> stipendi = List.of(1200.50, 1100.24, 1465.23, 1876.21, 1954.23, 1395.1, 2452.87);
+
+// Esercizio 1
+for(Double stipendio : stipendi){
+	if(stipendio > 1500.00)
+		System.out.println("Stipendio: " + stipendio);
+}
+
+//Esercizio1
+stipendi.stream().
+	filter(stipendio -> stipendio > 1500).
+	forEach(stipendio -> System.out.println("Stipendio: " + stipendio));
+
+--------------------------------------------------------------------------
+
+// Esercizio 2
+Double sommaStipendi = 0.0;
+for(Double stipendio : stipendi){
+	if(stipendio > 0)
+		sommaStipendi += stipendio;
+}
+
+//Esercizio2
+
+
+------------------------------------------------------------------------
+
+// Esercizio 3
+List<Double> stipendiMedi = new ArrayList<>();
+for(Double stipendio : stipendo){
+	if(stipendio > 1500)
+		if(stipendio < 2000)
+			stipendiMedi.add(stipendio);
+}
+
+// Esercizio 4
+List<Double> stipendiManager = new ArrayList<>();
+for(Impiegato d: registroDipendenti){
+	if(d.getRuolo().equals(RUOLO.Manager))
+		stipendiManager.add(d.getStipendio());
+}
+
+// Esercizio 5
+for(Impiegato d : registroDipendenti){
+	if(d.getRuolo().equals(RUOLO.Manager)){
+		if(d.getStipendio() > 2500)
+			return true;
+	}
+	return false;
+}
+
+// Esercizio 6
+for(Impiegato d : registroDipendenti){
+	if(d.getRuolo().equals(RUOLO.Direttore))
+		return d;
+}
